@@ -2,20 +2,16 @@
 Rock’, ‘Paper’ or ‘Scissors’
 Understand 
 
-
-
 Plan 
 
-
-
 Psudo 
+
 fun computer play : 
 return a randon r c p 
 fun plaer play 
 take from user r or c or p 
 fun round 
 compare use choose to computer choose and determine the winner 
-
 
 */
 let r =  "Rock";
@@ -60,7 +56,39 @@ function round(playr_selection,computer_selection = computerplay()){
         else return  "its a Tie"
     }
     else { 
-        return  playr_selection + "is not a vaild chooice!!")
+        return  playr_selection + "is not a vaild chooice!!"
     }
 }
-console.log(round(playerplay(),computerplay()));
+// console.log(round(playerplay(),computerplay()))
+function game(){ 
+    let score = 0 ;
+    let com_score = 0;
+    let count = 0 ; 
+    while(count != 5){
+        let s = round(playerplay(),computerplay()) 
+        console.log(s)
+        count++;
+        if (s.indexOf("win") != -1 ){ 
+            score++;
+            // alert(score)
+
+        }
+        else if (s.indexOf("lose") != -1 ){ 
+            com_score ++ ;
+        }
+        
+    }
+    let t = 5 - (score + com_score);
+    if(com_score > score){ 
+        return "The computer win "+com_score +": you "  +score +" Ties :"+ t;
+    }
+    else  if(com_score < score){ 
+        
+        return "The You win "+score +": you "  +com_score +" Ties :"+ t;
+    }
+    else { 
+        return "Its a Tie !! no of ties :" + t;
+    }
+
+}
+alert(game());
