@@ -80,11 +80,11 @@ function game(){
     }
     let t = 5 - (score + com_score);
     if(com_score > score){ 
-        return "The computer win "+com_score +": you "  +score +" Ties :"+ t;
+        return "The computer win with "+com_score +"wins , you lost with "  +score +" ,Ties :"+ t;
     }
     else  if(com_score < score){ 
         
-        return "The You win "+score +": you "  +com_score +" Ties :"+ t;
+        return " You win your score: "+score +" ,computer: "  +com_score +" Ties :"+ t;
     }
     else { 
         return "Its a Tie !! no of ties :" + t;
