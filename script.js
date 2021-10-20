@@ -14,19 +14,19 @@ fun round
 compare use choose to computer choose and determine the winner 
 
 */
-let r =  "Rock";
-let p =  "Paper";
-let c =  "Scissors";
+let rock =  "Rock";
+let paper =  "Paper";
+let scissors =  "Scissors";
 function computerplay(){ 
   let num = Math.floor(Math.random() * 3 );
 if (num == 0) {
-    return r;
+    return rock;
 }
 else if (num == 1) {
-    return p;
+    return paper;
 }
 else   {
-    return c;
+    return scissors;
 }
 }
 function playerplay(){
@@ -40,26 +40,26 @@ function round(playr_selection,computer_selection = computerplay()){
     // you win if the computer choose scissors 
     // you loose if the computer choose paper 
     // you tie if the computer choose the smae 
-    if (playr_selection == r.toUpperCase()){ 
-        if(computer_selection == c) return "you win "+cc+" beats "+computer_selection
-        else if(computer_selection == p) return  "you lose "+computer_selection+" beats "+cc
+    if (playr_selection == rock.toUpperCase()){ 
+        if(computer_selection == scissors) return "you win "+cc+" beats "+computer_selection
+        else if(computer_selection == paper) return  "you lose "+computer_selection+" beats "+cc
         else return  "its a Tie"
     }
-    else if (playr_selection == c.toUpperCase()){ 
-        if(computer_selection == p) return  "you win "+cc+" beats "+computer_selection
-        else if(computer_selection == r) return  "you lose "+computer_selection+" beats "+cc
+    else if (playr_selection == scissors.toUpperCase()){ 
+        if(computer_selection == paper) return  "you win "+cc+" beats "+computer_selection
+        else if(computer_selection == rock) return  "you lose "+computer_selection+" beats "+cc
         else return  "its a Tie"
     }
-    else if  (playr_selection == p.toUpperCase()){ 
-        if(computer_selection == r) return  "you win "+cc+" beats "+computer_selection
-        else if(computer_selection == c) return  "you lose "+computer_selection+" beats "+cc
+    else if  (playr_selection == paper.toUpperCase()){ 
+        if(computer_selection == rock) return  "you win "+cc+" beats "+computer_selection
+        else if(computer_selection == scissors) return  "you lose "+computer_selection+" beats "+cc
         else return  "its a Tie"
     }
     else { 
         return  playr_selection + "is not a vaild chooice!!"
     }
 }
-// console.log(round(playerplay(),computerplay()))
+// alert(round(playerplay(),computerplay()))
 function game(){ 
     let score = 0 ;
     let com_score = 0;
@@ -70,7 +70,6 @@ function game(){
         count++;
         if (s.indexOf("win") != -1 ){ 
             score++;
-            // alert(score)
 
         }
         else if (s.indexOf("lose") != -1 ){ 
@@ -78,17 +77,20 @@ function game(){
         }
         
     }
-    let t = 5 - (score + com_score);
+    let tie_count = 5 - (score + com_score);
+    
     if(com_score > score){ 
-        return "The computer win with "+com_score +"wins , you lost with "  +score +" ,Ties :"+ t;
+        let message = "The computer win with "+com_score +"wins , you lost with "  +score +" ,Ties :"+ tie_count;
+        return console.log(message);
     }
     else  if(com_score < score){ 
-        
-        return " You win your score: "+score +" ,computer: "  +com_score +" Ties :"+ t;
+        let message = " You win your score: "+score +" ,computer: "  +com_score +" Ties :"+ tie_count;
+        return console.log(message);
     }
     else { 
-        return "Its a Tie !! no of ties :" + t;
+        let message =  "Its a Tie !! no of ties :" + tie_count;
+        return console.log(message);
     }
 
 }
-alert(game());
+game();
