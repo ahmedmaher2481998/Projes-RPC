@@ -17,6 +17,7 @@ compare use choose to computer choose and determine the winner
 let keys = document.querySelectorAll(".play")
 let declearresult = document.createElement("h2");
 let finalres = document.createElement('h1');
+let all = document.querySelector(".all");
 let score = 0 ; 
 let compscore = 0 ;
 keys.forEach(key=>{ 
@@ -34,10 +35,12 @@ keys.forEach(key=>{
             if(score == 5){ 
                 finalres.textContent="You win";
                 div.appendChild(finalres);
+                
             }
             else if(compscore >= 5) {
                 finalres.textContent = "You lost ";
                 div.appendChild(finalres);
+                
             }
             score = compscore = 0;
         }
