@@ -5,8 +5,9 @@ body{
     align-items: center;
     justify-content: center;
     flex-flow: column wrap;
+
 }
-button{ 
+.play{ 
     padding: 5px;
     color: black;
     background: blueviolet;
