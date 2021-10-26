@@ -16,10 +16,12 @@ compare use choose to computer choose and determine the winner
 */
 let keys = document.querySelectorAll(".play")
 let declearresult = document.createElement("h2");
+let finalres = document.createElement('h1');
 let score = 0 ; 
 let compscore = 0 ;
 keys.forEach(key=>{ 
     key.addEventListener('click',(e)=>{ 
+        finalres.textContent='';
         let playr_selection = key.textContent;
         let result =(round(playr_selection,computer_selection = computerplay()));
         let div = document.querySelector(".res");
@@ -27,22 +29,20 @@ keys.forEach(key=>{
         div.appendChild(declearresult);
         if(result[1] == 1) score++;
         else if ( result[1] == -1) compscore++;
-        
-        else if ( score == 5 ||compscore==5 ){ 
-            let finalres = document.createElement('h1');
+        console.log(score,compscore )
+        if( score >= 5 || compscore >= 5  ){ 
             if(score == 5){ 
-                
-                finalres.textContent="You win"
+                finalres.textContent="You win";
+                div.appendChild(finalres);
             }
-            else finalres.textContent = "You lost ";
-            console.log(score,compscore);
-            div.appendChild(finalres);
+            else if(compscore >= 5) {
+                finalres.textContent = "You lost ";
+                div.appendChild(finalres);
+            }
+            score = compscore = 0;
         }
-        console.log(score,compscore);
-
         
-
-        
+ 
     
     })
  
